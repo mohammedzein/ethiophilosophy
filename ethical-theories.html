@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Ethical Theories</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="script.js"></script>
+    <style>
+        .dropdown-content .mega-menu-column h3 {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-content .mega-menu-column h3 i {
+            margin-left: 8px; /* Adjust spacing as needed */
+            font-size: 0.8em; /* Adjust size as needed */
+        }
+        /* Hide the icon by default */
+        .navbar .icon {
+            display: none;
+        }
+        /* Show the icon only on mobile devices */
+        @media screen and (max-width: 600px) {
+            .navbar .icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('philosophyDropdown')">Philosophy Topics 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="philosophyDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Ethics <i class="fa fa-caret-down"></i></h3>
+          <a href="ethics.html">Introduction to Ethics</a>
+          <a href="ethical-theories.html">Major Ethical Theories</a>
+          <a href="applied-ethics.html">Applied Ethics</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Metaphysics <i class="fa fa-caret-down"></i></h3>
+          <a href="metaphysics.html">Introduction to Metaphysics</a>
+          <a href="existentialism.html">Existentialism</a>
+          <a href="identity.html">Personal Identity</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Epistemology <i class="fa fa-caret-down"></i></h3>
+          <a href="epistemology.html">Introduction to Epistemology</a>
+          <a href="knowledge-theories.html">Theories of Knowledge</a>
+          <a href="skepticism.html">Skepticism</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('researchDropdown')">Research & Resources 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="researchDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Research Assistance <i class="fa fa-caret-down"></i></h3>
+          <a href="research-guidance.html">Research Guidance</a>
+          <a href="resources.html">Available Resources</a>
+          <a href="expert-advice.html">Expert Advice</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Academic Support <i class="fa fa-caret-down"></i></h3>
+          <a href="academic-support.html">Academic Support Services</a>
+          <a href="consultations.html">Personal Consultations</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Online Learning <i class="fa fa-caret-down"></i></h3>
+          <a href="online-courses.html">Online Courses</a>
+          <a href="course-catalog.html">Course Catalog</a>
+          <a href="certifications.html">Certifications</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+</div>
+
+<div class="page-wrapper">
+    <main>
+        <section id="ethical-theories">
+            <h1>Major Ethical Theories</h1>
+            <p>Ethical theories provide frameworks for evaluating moral questions and guiding ethical decision-making. Here, we explore some of the major ethical theories that have shaped philosophical discourse on morality:</p>
+            
+            <h2>1. Utilitarianism</h2>
+            <p>Utilitarianism is a consequentialist theory that suggests actions are right if they promote the greatest happiness or pleasure for the greatest number of people. Developed by philosophers such as Jeremy Bentham and John Stuart Mill, this theory emphasizes the outcomes of actions and seeks to maximize overall well-being.</p>
+            
+            <h2>2. Deontology</h2>
+            <p>Deontology, often associated with Immanuel Kant, focuses on the inherent morality of actions rather than their consequences. According to this theory, certain actions are morally obligatory, permissible, or forbidden based on their adherence to moral rules or duties. The emphasis is on following ethical principles and respect for individuals.</p>
+            
+            <h2>3. Virtue Ethics</h2>
+            <p>Virtue ethics, rooted in the works of Aristotle, emphasizes the development of moral character and virtues. Instead of focusing solely on the rightness or wrongness of individual actions, this theory considers the kind of person one should be and the virtues that constitute a good life. It stresses the importance of moral character and practical wisdom.</p>
+            
+            <h2>4. Social Contract Theory</h2>
+            <p>Social contract theory, associated with philosophers like Thomas Hobbes, John Locke, and Jean-Jacques Rousseau, explores the idea that moral and political obligations arise from a hypothetical contract or agreement among individuals in a society. This theory examines the role of consent and mutual agreement in forming moral and political rules.</p>
+            
+            <h2>5. Care Ethics</h2>
+            <p>Care ethics, pioneered by feminist philosophers such as Carol Gilligan and Nel Noddings, emphasizes the importance of care, empathy, and relationships in ethical decision-making. This theory focuses on the moral significance of interpersonal relationships and the moral obligation to respond to the needs of others with compassion and care.</p>
+
+            <p>These theories offer different perspectives on what constitutes ethical behavior and how moral decisions should be made. By studying these theories, you can gain a deeper understanding of the diverse approaches to ethics and how they apply to various moral dilemmas.</p>
+        </section>
+    </main>
+</div>
+
+<div class="fooer" style="background-color: green; text-align: center;">
+  <p>&copy; 2024 Mozhassen. All rights reserved.</p>
+</div>
+
+<style>
+  .fooer {
+    padding: 5px 0;
+  }
+</style>
+
+</body>
+</html>

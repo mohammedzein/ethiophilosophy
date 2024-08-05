@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skepticism</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="script.js"></script>
+    <style>
+        .dropdown-content .mega-menu-column h3 {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-content .mega-menu-column h3 i {
+            margin-left: 8px; /* Adjust spacing as needed */
+            font-size: 0.8em; /* Adjust size as needed */
+        }
+        /* Hide the icon by default */
+        .navbar .icon {
+            display: none;
+        }
+        /* Show the icon only on mobile devices */
+        @media screen and (max-width: 600px) {
+            .navbar .icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('philosophyDropdown')">Philosophy Topics 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="philosophyDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Ethics <i class="fa fa-caret-down"></i></h3>
+          <a href="ethics.html">Introduction to Ethics</a>
+          <a href="ethical-theories.html">Major Ethical Theories</a>
+          <a href="applied-ethics.html">Applied Ethics</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Metaphysics <i class="fa fa-caret-down"></i></h3>
+          <a href="metaphysics.html">Introduction to Metaphysics</a>
+          <a href="existentialism.html">Existentialism</a>
+          <a href="identity.html">Personal Identity</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Epistemology <i class="fa fa-caret-down"></i></h3>
+          <a href="epistemology.html">Introduction to Epistemology</a>
+          <a href="knowledge-theories.html">Theories of Knowledge</a>
+          <a href="skepticism.html">Skepticism</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('researchDropdown')">Research & Resources 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="researchDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Research Assistance <i class="fa fa-caret-down"></i></h3>
+          <a href="research-guidance.html">Research Guidance</a>
+          <a href="resources.html">Available Resources</a>
+          <a href="expert-advice.html">Expert Advice</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Academic Support <i class="fa fa-caret-down"></i></h3>
+          <a href="academic-support.html">Academic Support Services</a>
+          <a href="consultations.html">Personal Consultations</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Online Learning <i class="fa fa-caret-down"></i></h3>
+          <a href="online-courses.html">Online Courses</a>
+          <a href="course-catalog.html">Course Catalog</a>
+          <a href="certifications.html">Certifications</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+</div>
+
+<div class="page-wrapper">
+    <main>
+        <section id="skepticism">
+            <h1>Skepticism</h1>
+            <p>Skepticism is a philosophical perspective that questions the possibility of certainty in knowledge. Skeptics challenge the adequacy or reliability of claims by asking what principles they are based upon or what they actually establish. This approach can apply to any domain of knowledge but is especially significant in epistemology.</p>
+            <!-- Add more content as needed -->
+        </section>
+    </main>
+</div>
+
+<div class="fooer" style="background-color: green; text-align: center;">
+  <p>&copy; 2024 Mozhassen. All rights reserved.</p>
+</div>
+
+<style>
+  .fooer {
+    padding: 5px 0;
+  }
+</style>
+
+</body>
+</html>
