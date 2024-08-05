@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="script.js"></script>
+    <style>
+        .dropdown-content .mega-menu-column h3 {
+            display: flex;
+            align-items: center;
+        }
+        .dropdown-content .mega-menu-column h3 i {
+            margin-left: 8px; /* Adjust spacing as needed */
+            font-size: 0.8em; /* Adjust size as needed */
+        }
+        /* Hide the icon by default */
+        .navbar .icon {
+            display: none;
+        }
+        /* Show the icon only on mobile devices */
+        @media screen and (max-width: 600px) {
+            .navbar .icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar" id="navbar">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('philosophyDropdown')">Philosophy Topics 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="philosophyDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Ethics <i class="fa fa-caret-down"></i></h3>
+          <a href="ethics.html">Introduction to Ethics</a>
+          <a href="ethical-theories.html">Major Ethical Theories</a>
+          <a href="applied-ethics.html">Applied Ethics</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Metaphysics <i class="fa fa-caret-down"></i></h3>
+          <a href="metaphysics.html">Introduction to Metaphysics</a>
+          <a href="existentialism.html">Existentialism</a>
+          <a href="identity.html">Personal Identity</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Epistemology <i class="fa fa-caret-down"></i></h3>
+          <a href="epistemology.html">Introduction to Epistemology</a>
+          <a href="knowledge-theories.html">Theories of Knowledge</a>
+          <a href="skepticism.html">Skepticism</a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown('researchDropdown')">Research & Resources 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div id="researchDropdown" class="dropdown-content">
+      <div class="mega-menu">
+        <div class="mega-menu-column">
+          <h3>Research Assistance <i class="fa fa-caret-down"></i></h3>
+          <a href="research-guidance.html">Research Guidance</a>
+          <a href="resources.html">Available Resources</a>
+          <a href="expert-advice.html">Expert Advice</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Academic Support <i class="fa fa-caret-down"></i></h3>
+          <a href="academic-support.html">Academic Support Services</a>
+          <a href="consultations.html">Personal Consultations</a>
+          <a href="workshops.html">Workshops</a>
+        </div>
+        <div class="divider"></div>
+        <div class="mega-menu-column">
+          <h3>Online Learning <i class="fa fa-caret-down"></i></h3>
+          <a href="online-courses.html">Online Courses</a>
+          <a href="course-catalog.html">Course Catalog</a>
+          <a href="certifications.html">Certifications</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">&#9776;</a>
+</div>
+
+<div class="page-wrapper">
+    <main>
+        <section id="services">
+            <h1>Well come to Introduction to philosophy</h1>
+            <p>Philosophy challenges you to question and analyze the beliefs and assumptions that guide your everyday life. It encourages a rigorous examination of concepts that are often taken for granted, such as justice, beauty, and freedom. Through the study of various philosophical traditions and schools of thought, you will gain insights into how different cultures and thinkers have approached these timeless questions. This intellectual exploration not only enhances your ability to think deeply and critically but also enriches your understanding of the diverse perspectives that have shaped human history.</p>
+        <p>Welcome to the fascinating world of philosophy, a discipline that invites you to explore the fundamental questions about existence, knowledge, ethics, and the nature of reality. Philosophy is more than just an academic subject; it is a journey into the depths of human thought and inquiry. By engaging with philosophical questions, you will uncover the underlying principles that shape our understanding of the world and our place within it. Whether you are seeking to understand the nature of truth, the principles of morality, or the essence of consciousness, philosophy provides a framework for critical thinking and reflection.</p>
+        <p>As you delve into the complexities of philosophical inquiry, you will find that philosophy is a dynamic and evolving field that continuously engages with contemporary issues and challenges. The skills and insights you develop through philosophical study will serve you well in a variety of contexts, from personal decision-making to professional endeavors. By embracing the spirit of philosophical inquiry, you embark on a lifelong journey of learning and discovery, gaining a deeper appreciation for the intricacies of human thought and the profound questions that continue to inspire and challenge us.</p>
+        </section>
+    </main>
+</div>
+
+<div class="fooer" style="background-color: green; text-align: center;">
+  <p>&copy; 2024 Mozhassen. All rights reserved.</p>
+</div>
+
+<style>
+  .fooer {
+    padding: 5px 0;
+  }
+</style>
+
+</body>
+</html>

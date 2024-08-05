@@ -1,0 +1,239 @@
+/* Ensure the page takes up the full height */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* Wrapper for the main content and footer */
+.page-wrapper {
+    background-color: rgb(221, 221, 187); /* Yellow background for the margins */
+    padding: 40px; /* Increased padding to create the indented effect */
+    min-height: calc(100vh - 50px); /* Adjust based on footer height */
+    /* Set min-height to ensure content pushes footer to bottom */
+}
+
+/* Container for content area */
+.container {
+    background-color: rgb(206, 48, 48); /* Set content area background color */
+    padding: 20px; /* Add padding to the container */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: green; /* Green background */
+    overflow: hidden;
+    padding: 10px 20px; /* Add padding to the navbar */
+}
+
+/* Navbar links */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Dropdown styling */
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: block; /* Always displayed, controlled by visibility */
+    position: absolute;
+    background-color: rgb(94, 62, 62); /* Red background */
+    max-width: 900px; /* Set max width */
+    max-height: 0; /* Start with height 0 */
+    overflow: hidden;
+    transition: max-height 1s ease-out, opacity 1s ease-out; /* Slow down transition */
+    opacity: 0; /* Start with invisible */
+    z-index: 1;
+}
+
+.dropdown-content.show {
+    max-height: 300px; /* Adjust to fit the content */
+    opacity: 1; /* Make it visible */
+}
+
+.dropdown-content .mega-menu {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    background-color: rgb(83, 87, 143); /* Red background */
+    padding: 10px; /* Reduced padding */
+    gap: 10px; /* Space between columns */
+}
+
+.mega-menu-column {
+    flex: 1; /* Distribute space equally */
+    padding: 5px; /* Reduced padding */
+}
+
+.mega-menu-column h3 {
+    margin-top: 0;
+}
+
+.mega-menu-column a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.mega-menu-column a:hover {
+    color: #555;
+}
+
+.dropdown-content .divider {
+    width: 1px;
+    background-color: white;
+    margin: 0 5px; /* Reduced margin */
+}
+
+/* Footer styles */
+.site-footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px; /* Add some spacing between the content and the footer */
+}
+
+/* Responsive design adjustments */
+.icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar a:not(:first-child), .dropdown .dropbtn {
+        display: none;
+    }
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+    .dropdown-content .mega-menu {
+    flex-direction: column; /* Stacks categories vertically on mobile */
+    gap: 0; /* Remove space between columns on mobile */
+}
+
+.mega-menu-column {
+    flex: 1 1 auto; /* Allow columns to adjust automatically */
+    margin-bottom: 20px; /* Adds spacing between categories on mobile */
+}
+
+.dropdown-content .divider {
+    display: none; /* Hides dividers on mobile */
+}
+
+@media screen and (max-width: 600px) {
+    .navbar.responsive {
+        position: relative;
+    }
+    .navbar.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navbar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .navbar.responsive .dropdown {
+        float: none;
+    }
+    .navbar.responsive .dropdown-content {
+        position: relative;
+        min-width: 100%; /* Makes dropdown full width */
+    }
+    .navbar.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+}
+/* Dropdown styling */
+.dropdown-content {
+    display: block; /* Always displayed, controlled by visibility */
+    position: absolute;
+    background-color: rgb(94, 62, 62); /* Red background */
+    width: 100%; /* Set width to 100% by default */
+    max-height: 0; /* Start with height 0 */
+    overflow: hidden;
+    transition: max-height 1s ease-out, opacity 1s ease-out; /* Slow down transition */
+    opacity: 0; /* Start with invisible */
+    z-index: 1;
+}
+
+.dropdown-content.show {
+    max-height: 800px; /* Adjust to fit the content */
+    opacity: 1; /* Make it visible */
+}
+
+.dropdown-content .mega-menu {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    background-color: rgb(83, 87, 143); /* Red background */
+    padding: 20px; /* Adjust padding as needed */
+    gap: 20px; /* Space between columns */
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+}
+
+.mega-menu-column {
+    flex: 1 0 200px; /* Minimum column width of 200px */
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.mega-menu-column h3 {
+    margin-top: 0;
+}
+
+.mega-menu-column a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.mega-menu-column a:hover {
+    color: #555;
+}
+
+.dropdown-content .divider {
+    width: 1px;
+    background-color: white;
+    margin: 0 10px; /* Adjust margin as needed */
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+    .dropdown-content .mega-menu {
+        flex-direction: column; /* Stacks categories vertically on smaller screens */
+        gap: 10px; /* Adjust spacing between columns on smaller screens */
+    }
+
+    .mega-menu-column {
+        flex: 1 0 auto; /* Allow columns to adjust automatically */
+        margin-bottom: 10px; /* Add spacing between categories on smaller screens */
+    }
+
+    .dropdown-content .divider {
+        display: none; /* Hide dividers on smaller screens */
+    }
+}
