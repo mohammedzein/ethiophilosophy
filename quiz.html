@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Certification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-btn, .start-btn {
+            background: linear-gradient(135deg, #ff8a00, #da1b60); /* Gradient background */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .start-btn {
+            display: block;
+            margin: 20px 0;
+        }
+        .submit-btn:hover, .start-btn:hover {
+            background: linear-gradient(135deg, #da1b60, #ff8a00); /* Inverse gradient on hover */
+            transform: translateY(-2px);
+        }
+        .submit-btn:active, .start-btn:active {
+            transform: translateY(0);
+        }
+        .intro {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4c4c;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="intro" id="intro">
+        <h1>Welcome to the Philosophy Quiz!</h1>
+        <p>This quiz consists of 12 questions. You have 60 minutes to complete the quiz. To pass and receive a certificate, you need to score at least 5 out of 12. Please read each question carefully and select the best answer. Good luck!</p>
+        <button class="start-btn" onclick="startQuiz()">Start the Quiz</button>
+    </div>
+    
+    <div id="quizSection" style="display: none;">
+        <div id="timer">Time remaining: 60:00</div>
+        <form id="quizForm">
+            <div class="form-group">
+                <label for="studentName">Enter Your Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <!-- Questions 1-12 -->
+            <div class="question">
+                <p>1. Who is considered the "Father of Western Philosophy"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="0"> Aristotle</label><br>
+                    <label><input type="radio" name="q1" value="1"> Socrates</label><br>
+                    <label><input type="radio" name="q1" value="0"> Plato</label><br>
+                    <label><input type="radio" name="q1" value="0"> Pythagoras</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What does the term "Socratic Method" refer to?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="1"> A method of questioning and dialogue to stimulate critical thinking</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of logical deduction</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of empirical observation</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of intuitive reasoning</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>3. Which philosopher is known for the phrase "I think, therefore I am"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1"> René Descartes</label><br>
+                    <label><input type="radio" name="q3" value="0"> Immanuel Kant</label><br>
+                    <label><input type="radio" name="q3" value="0"> Friedrich Nietzsche</label><br>
+                    <label><input type="radio" name="q3" value="0"> John Locke</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. What is "utilitarianism"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="1"> A philosophical theory that suggests actions are right if they benefit the majority</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they follow moral rules</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they align with religious doctrines</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they are based on personal feelings</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>5. Who wrote "Critique of Pure Reason"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="1"> Immanuel Kant</label><br>
+                    <label><input type="radio" name="q5" value="0"> David Hume</label><br>
+                    <label><input type="radio" name="q5" value="0"> Karl Marx</label><br>
+                    <label><input type="radio" name="q5" value="0"> Georg Wilhelm Friedrich Hegel</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>6. What is the main focus of existentialism?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="1"> The individual's experience and freedom of choice</label><br>
+                    <label><input type="radio" name="q6" value="0"> The study of universal truths and objective knowledge</label><br>
+                    <label><input type="radio" name="q6" value="0"> The examination of social and political structures</label><br>
+                    <label><input type="radio" name="q6" value="0"> The exploration of historical events and their impact</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>7. Who is known for the concept of "the will to power"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="1"> Friedrich Nietzsche</label><br>
+                    <label><input type="radio" name="q7" value="0"> Arthur Schopenhauer</label><br>
+                    <label><input type="radio" name="q7" value="0"> Søren Kierkegaard</label><br>
+                    <label><input type="radio" name="q7" value="0"> Jean-Paul Sartre</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>8. What does "empiricism" emphasize?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="1"> Knowledge comes from sensory experience</label><br>
+                    <label><input type="radio" name="q8" value="0"> Knowledge is derived from logical reasoning alone</label><br>
+                    <label><input type="radio" name="q8" value="0"> Knowledge is based on divine revelation</label><br>
+                    <label><input type="radio" name="q8" value="0"> Knowledge is inherited through tradition</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>9. Which philosopher is associated with the "categorical imperative"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="1"> Immanuel Kant</label><br>
+                    <label><input type="radio" name="q9" value="0"> John Stuart Mill</label><br>
+                    <label><input type="radio" name="q9" value="0"> Friedrich Nietzsche</label><br>
+                    <label><input type="radio" name="q9" value="0"> Jean-Jacques Rousseau</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>10. What does "ontology" study?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="1"> The nature of being and existence</label><br>
+                    <label><input type="radio" name="q10" value="0"> The nature of ethical principles</label><br>
+                    <label><input type="radio" name="q10" value="0"> The nature of social institutions</label><br>
+                    <label><input type="radio" name="q10" value="0"> The nature of human consciousness</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>11. What is "epistemology" concerned with?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="1"> The nature and scope of knowledge</label><br>
+                    <label><input type="radio" name="q11" value="0"> The nature of social structures</label><br>
+                    <label><input type="radio" name="q11" value="0"> The nature of moral values</label><br>
+                    <label><input type="radio" name="q11" value="0"> The nature of physical reality</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>12. What is "metaphysics" concerned with?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="1"> The fundamental nature of reality and existence</label><br>
+                    <label><input type="radio" name="q12" value="0"> The study of ethical behavior</label><br>
+                    <label><input type="radio" name="q12" value="0"> The analysis of historical events</label><br>
+                    <label><input type="radio" name="q12" value="0"> The exploration of social dynamics</label>
+                </div>
+            </div>
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+        </form>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        let timer;
+        let timeRemaining = 60 * 60; // 60 minutes in seconds
+
+        function startQuiz() {
+            const attempts = localStorage.getItem('quizAttempts');
+            if (attempts !== null && parseInt(attempts) >= 5) {
+                document.getElementById('intro').innerHTML = '<h1>Quiz Attempt Limit Reached</h1><p>You have reached the maximum number of attempts for this quiz. Please contact your instructor for further assistance.</p>';
+                return;
+            }
+
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'block';
+            startTimer();
+
+            // Update attempt count
+            localStorage.setItem('quizAttempts', (parseInt(attempts) || 0) + 1);
+        }
+
+        function startTimer() {
+            timer = setInterval(function() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                document.getElementById('timer').textContent = `Time remaining: ${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                timeRemaining--;
+
+                if (timeRemaining < 0) {
+                    clearInterval(timer);
+                    checkAnswers();
+                }
+            }, 1000);
+        }
+
+        function checkAnswers() {
+            clearInterval(timer);
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            const studentName = form.querySelector('#studentName').value;
+            let score = 0;
+            const questions = Array.from({ length: 12 }, (_, i) => i + 1);
+            
+            questions.forEach(question => {
+                const selectedOption = form.querySelector(`input[name=q${question}]:checked`);
+                if (selectedOption) {
+                    score += parseInt(selectedOption.value);
+                }
+            });
+
+            if (score < 5) {
+                resultDiv.textContent = 'Sorry, you did not pass the quiz. Please try again.';
+            } else {
+                localStorage.setItem('studentName', studentName);
+                localStorage.setItem('score', score);
+                window.location.href = 'congratulations.html';
+            }
+        }
+    </script>
+</body>
+</html>
