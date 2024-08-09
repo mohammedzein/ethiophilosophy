@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .congratulations {
+            border: 2px solid #4a90e2;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top left, #dbe5e9, #ffffff);
+        }
+        .congratulations h1 {
+            color: #4a90e2;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-top: 0;
+        }
+        .congratulations p {
+            font-size: 1.2em;
+            color: #555;
+            margin: 20px 0;
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #ff8a00, #da1b60);
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, #da1b60, #ff8a00);
+            transform: translateY(-2px);
+        }
+        .download-btn:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="congratulations">
+        <h1>Congratulations!</h1>
+        <p>You have successfully completed the quiz with a score of <span id="score"></span> out of 12.</p>
+        <p>Click the button below to download your certificate.</p>
+        <button class="download-btn" onclick="window.location.href='certificate.html?name=' + encodeURIComponent(getQueryParam('name')) + '&score=' + encodeURIComponent(getQueryParam('score'))">Download Your Certificate</button>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            var params = new URLSearchParams(window.location.search);
+            return params.get(name);
+        }
+
+        window.onload = function() {
+            document.getElementById('score').textContent = getQueryParam('score');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Certification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            user-select: none; /* Prevents text selection */
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-btn, .start-btn {
+            background: linear-gradient(135deg, #ff8a00, #da1b60); /* Gradient background */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .start-btn {
+            display: block;
+            margin: 20px 0;
+        }
+        .submit-btn:hover, .start-btn:hover {
+            background: linear-gradient(135deg, #da1b60, #ff8a00); /* Inverse gradient on hover */
+            transform: translateY(-2px);
+        }
+        .submit-btn:active, .start-btn:active {
+            transform: translateY(0);
+        }
+        .intro {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4c4c;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 8px 8px 0 0;
+        }
+        .modal-footer {
+            padding: 10px 16px;
+            background-color: #5cb85c;
+            color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        .modal-footer button {
+            background: linear-gradient(135deg, #ff8a00, #da1b60); /* Gradient background */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .modal-footer button:hover {
+            background: linear-gradient(135deg, #da1b60, #ff8a00); /* Inverse gradient on hover */
+            transform: translateY(-2px);
+        }
+        .modal-footer button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="intro" id="intro">
+        <h1>Welcome to the Philosophy Quiz!</h1>
+        <p>This quiz consists of 12 questions. You have 60 minutes to complete the quiz. To pass and receive a certificate, you need to score at least 5 out of 12. Please read each question carefully and select the best answer. Good luck!</p>
+        <button class="start-btn" onclick="startQuiz()">Start the Quiz</button>
+    </div>
+    
+    <div id="quizSection" style="display: none;">
+        <div id="timer">Time remaining: 60:00</div>
+        <form id="quizForm">
+            <div class="form-group">
+                <label for="studentName">Enter Your Full Name:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <!-- Questions 1-12 -->
+            <div class="question">
+                <p>1. Who is considered the "Father of Western Philosophy"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="0"> Aristotle</label><br>
+                    <label><input type="radio" name="q1" value="1"> Socrates</label><br>
+                    <label><input type="radio" name="q1" value="0"> Plato</label><br>
+                    <label><input type="radio" name="q1" value="0"> Pythagoras</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>2. What does the term "Socratic Method" refer to?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="1"> A method of questioning and dialogue to stimulate critical thinking</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of logical deduction</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of empirical observation</label><br>
+                    <label><input type="radio" name="q2" value="0"> A method of intuitive reasoning</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>3. Which philosopher is known for the phrase "I think, therefore I am"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="1"> René Descartes</label><br>
+                    <label><input type="radio" name="q3" value="0"> Immanuel Kant</label><br>
+                    <label><input type="radio" name="q3" value="0"> Friedrich Nietzsche</label><br>
+                    <label><input type="radio" name="q3" value="0"> John Locke</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>4. What is "utilitarianism"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="1"> A philosophical theory that suggests actions are right if they benefit the majority</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they follow moral rules</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they align with religious doctrines</label><br>
+                    <label><input type="radio" name="q4" value="0"> A philosophical theory that suggests actions are right if they are based on personal feelings</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>5. Who wrote "Critique of Pure Reason"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="1"> Immanuel Kant</label><br>
+                    <label><input type="radio" name="q5" value="0"> David Hume</label><br>
+                    <label><input type="radio" name="q5" value="0"> Karl Marx</label><br>
+                    <label><input type="radio" name="q5" value="0"> Georg Wilhelm Friedrich Hegel</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>6. What is the main focus of existentialism?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="1"> The individual's experience and freedom of choice</label><br>
+                    <label><input type="radio" name="q6" value="0"> The study of universal truths and objective knowledge</label><br>
+                    <label><input type="radio" name="q6" value="0"> The examination of ethical principles and moral values</label><br>
+                    <label><input type="radio" name="q6" value="0"> The analysis of political and economic systems</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>7. What is the "Categorical Imperative" in Kantian ethics?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="1"> A principle that commands actions be universally applicable</label><br>
+                    <label><input type="radio" name="q7" value="0"> A principle that commands actions based on personal desires</label><br>
+                    <label><input type="radio" name="q7" value="0"> A principle that commands actions based on the greatest good for the greatest number</label><br>
+                    <label><input type="radio" name="q7" value="0"> A principle that commands actions according to religious doctrines</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>8. Who is known for the concept of "the will to power"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="1"> Friedrich Nietzsche</label><br>
+                    <label><input type="radio" name="q8" value="0"> Thomas Hobbes</label><br>
+                    <label><input type="radio" name="q8" value="0"> Jean-Jacques Rousseau</label><br>
+                    <label><input type="radio" name="q8" value="0"> John Stuart Mill</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>9. What does "empiricism" emphasize?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="1"> Knowledge based on sensory experience</label><br>
+                    <label><input type="radio" name="q9" value="0"> Knowledge based on rational deduction</label><br>
+                    <label><input type="radio" name="q9" value="0"> Knowledge based on spiritual insight</label><br>
+                    <label><input type="radio" name="q9" value="0"> Knowledge based on social consensus</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>10. Which philosopher is associated with "tabula rasa" (blank slate)?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="1"> John Locke</label><br>
+                    <label><input type="radio" name="q10" value="0"> Jean-Jacques Rousseau</label><br>
+                    <label><input type="radio" name="q10" value="0"> René Descartes</label><br>
+                    <label><input type="radio" name="q10" value="0"> Immanuel Kant</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>11. What is "dialectical materialism"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q11" value="1"> A Marxist theory of historical and societal development through conflict</label><br>
+                    <label><input type="radio" name="q11" value="0"> A theory of individual psychological development</label><br>
+                    <label><input type="radio" name="q11" value="0"> A theory of ethical decision-making based on divine commands</label><br>
+                    <label><input type="radio" name="q11" value="0"> A theory of economic development based on market principles</label>
+                </div>
+            </div>
+            <div class="question">
+                <p>12. Who is associated with the concept of "the social contract"?</p>
+                <div class="options">
+                    <label><input type="radio" name="q12" value="1"> Jean-Jacques Rousseau</label><br>
+                    <label><input type="radio" name="q12" value="0"> John Stuart Mill</label><br>
+                    <label><input type="radio" name="q12" value="0"> Thomas Hobbes</label><br>
+                    <label><input type="radio" name="q12" value="0"> Friedrich Nietzsche</label>
+                </div>
+            </div>
+            <button type="button" class="submit-btn" onclick="submitQuiz()">Submit</button>
+        </form>
+    </div>
+
+    <!-- Failure Modal -->
+    <div id="failureModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sorry, You Have Failed the Quiz</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your score did not meet the passing criteria. Would you like to retake the quiz?</p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="window.location.href='quiz.html'">Yes, Retake the Quiz</button>
+                <button onclick="closeModal()">No, Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startQuiz() {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('quizSection').style.display = 'block';
+            startTimer();
+        }
+
+        function startTimer() {
+            var timerDisplay = document.getElementById('timer');
+            var timeLeft = 3600; // 60 minutes in seconds
+            var timer = setInterval(function() {
+                var minutes = Math.floor(timeLeft / 60);
+                var seconds = timeLeft % 60;
+                timerDisplay.textContent = 'Time remaining: ' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    submitQuiz();
+                }
+                timeLeft -= 1;
+            }, 1000);
+        }
+
+        function submitQuiz() {
+            var form = document.getElementById('quizForm');
+            var studentName = form.studentName.value;
+            if (!studentName) {
+                alert('Please enter your full name.');
+                return;
+            }
+
+            var score = 0;
+            var correctAnswers = {
+                q1: "1",
+                q2: "1",
+                q3: "1",
+                q4: "1",
+                q5: "1",
+                q6: "1",
+                q7: "1",
+                q8: "1",
+                q9: "1",
+                q10: "1",
+                q11: "1",
+                q12: "1"
+            };
+
+            for (var i = 1; i <= 12; i++) {
+                var answer = form['q' + i].value;
+                if (answer === correctAnswers['q' + i]) {
+                    score += 1;
+                }
+            }
+
+            var passMark = 5;
+            if (score >= passMark) {
+                window.location.href = 'congratulations.html?name=' + encodeURIComponent(studentName) + '&score=' + score;
+            } else {
+                document.getElementById('failureModal').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('failureModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

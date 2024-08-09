@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Certificate</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        .certificate {
+            border: 2px solid #4a90e2;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+            position: relative;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-image: linear-gradient(to top left, #dbe5e9, #ffffff);
+        }
+        .certificate h1 {
+            color: #4a90e2;
+            margin-top: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .certificate h2 {
+            color: #333;
+            font-size: 2em;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .certificate p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .certificate img.logo {
+            width: 150px;
+            display: block;
+            margin: 20px auto;
+        }
+        .certificate img.qr-code {
+            width: 120px;
+            display: block;
+            margin: 20px auto 0;
+        }
+        .certificate img.signature {
+            width: 200px;
+            display: block;
+            margin: 30px auto 0;
+        }
+        .print-btn {
+            background: linear-gradient(135deg, #ff8a00, #da1b60);
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 20px;
+        }
+        .print-btn:hover {
+            background: linear-gradient(135deg, #da1b60, #ff8a00);
+            transform: translateY(-2px);
+        }
+        .print-btn:active {
+            transform: translateY(0);
+        }
+        .border-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px dashed #4a90e2;
+            pointer-events: none;
+            border-radius: 12px;
+            box-sizing: border-box;
+            padding: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate">
+        <div class="border-decoration"></div>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Certificate of Achievement</h1>
+        <p>This is to certify that</p>
+        <h2 id="studentName"></h2>
+        <p>has successfully completed the "Introduction to Philosophy" online quiz</p>
+        <p>with a score of <span id="score"></span> out of 12.</p>
+        <p>Certificate ID: <span id="certificateId"></span></p>
+        <p>Instructor: Mohammed Zeinu Hassen</p>
+        <img src="signature.png" alt="Signature" class="signature">
+        <img src="qr-code.png" alt="QR Code" class="qr-code">
+    </div>
+    <button class="print-btn" onclick="window.print()">Print Certificate</button>
+
+    <script>
+        window.onload = function() {
+            var params = new URLSearchParams(window.location.search);
+            var studentName = params.get('name');
+            var score = params.get('score');
+            var certificateId = 'CERT-' + Date.now(); // Generate a new certificate ID
+
+            document.getElementById('studentName').textContent = studentName;
+            document.getElementById('score').textContent = score;
+            document.getElementById('certificateId').textContent = certificateId;
+        };
+    </script>
+</body>
+</html>
